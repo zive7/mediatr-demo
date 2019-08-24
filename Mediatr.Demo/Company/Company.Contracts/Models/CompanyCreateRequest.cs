@@ -11,6 +11,6 @@
         [StringLength(150, ErrorMessage = "Company name name is too short or too long")]
         public string Name { get; set; }
 
-        public decimal Number { get; set; }
+        public string Number { get; set; }
     }
 }

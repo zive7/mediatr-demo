@@ -1,19 +1,26 @@
 ﻿namespace Company.Storage
 {
-    using Company.Entities;
     using Company.Entities.Storage;
-    using Company.Storage.InMemoryStorage;
+    using Company.Storage.Database.Context;
+    using Company.Storage.Factories;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class CompanyRepository : ICompanyRepository
+    public class CompanyRepository : RepositoryBase, ICompanyRepository
     {
-        public void Insert(Company company)
+        public CompanyRepository(IDbContext dbContext) : base(dbContext)
         {
-            StorageRepo.Companies.Add(company);
+
+        }
+
+        public void Insert(Company.Entities.Company company)
+        {
+            Entities.Company dbCompany = CompanyFatory.CreateCompany(company);
+
+            _context.Set<Entities.Company>().Add(dbCompany);
         }
     }
 }

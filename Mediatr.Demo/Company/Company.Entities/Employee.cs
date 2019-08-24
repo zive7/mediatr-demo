@@ -28,7 +28,6 @@ namespace Company.Entities
         {
             Employee employee = new Employee()
             {
-                Id = 1,
                 Name = name,
                 PersonalId = personalId
             };

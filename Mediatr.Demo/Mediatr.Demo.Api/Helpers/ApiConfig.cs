@@ -13,6 +13,9 @@ using Mediatr.Demo.Api.App_Start.Mediator;
 using MediatR;
 using Company.Entities.DomainEvents;
 using Company.Services.DomainEventHandlers;
+using Company.Entities.UnitOfWork;
+using Company.Storage.Database.Context;
+using Company.Storage.UnitOfWork;
 
 namespace Mediatr.Demo.Api.Helpers
 {
@@ -21,9 +24,10 @@ namespace Mediatr.Demo.Api.Helpers
         internal static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IEmployeeRepository>().To<EmployeeRepository>().InRequestAndBackgroundScope();
-            kernel.Bind<IDispatchEventService>().To<DispatchEventService>().InRequestAndBackgroundScope();
             kernel.Bind<ICompanyRepository>().To<CompanyRepository>().InRequestAndBackgroundScope();
             kernel.Bind<ICompanyService>().To<CompanyService>().InRequestAndBackgroundScope();
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestAndBackgroundScope();
+            kernel.Bind<IDbContext>().ToConstructor<DbContext>(x => new DbContext("MediatrDemoDb")).InRequestAndBackgroundScope();
 
             kernel.RegisterMediatorModule();
 

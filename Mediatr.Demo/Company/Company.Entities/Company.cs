@@ -1,5 +1,6 @@
 ﻿namespace Company.Entities
 {
+    using Core.Contracts.Enums;
     using global::Company.Entities.DomainEvents;
     using global::Company.Entities.ValueObjects;
 
@@ -7,18 +8,18 @@
     {
         public CompanyNameValue Name { get; private set; }
 
-        public decimal Number { get; private set; }
+        public string Number { get; private set; }
 
         private Company()
         {
 
         }
 
-        public static Company Create(CompanyNameValue name, decimal number)
+        public static Company Create(CompanyNameValue name, string number)
         {
             Company company = new Company()
             {
-                Id = 1,
+                State = EntityState.Added,
                 Name = name,
                 Number = number
             };

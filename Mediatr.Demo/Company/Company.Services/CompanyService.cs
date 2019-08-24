@@ -3,6 +3,7 @@
     using Company.Contracts;
     using Company.Contracts.Models;
     using Company.Entities.Storage;
+    using Company.Entities.UnitOfWork;
     using Company.Services.Factories;
     using System;
     using System.Collections.Generic;
@@ -12,13 +13,13 @@
     public class CompanyService : ICompanyService
     {
         private readonly ICompanyRepository _companyRepository;
-        private readonly IDispatchEventService _dispatchEventService;
+        private readonly IUnitOfWork _unitOfWork;
 
         public CompanyService(ICompanyRepository companyRepository,
-                              IDispatchEventService dispatchEventService)
+                              IUnitOfWork unitOfWork)
         {
             _companyRepository = companyRepository;
-            _dispatchEventService = dispatchEventService;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task CreateCompanyAsync(CompanyCreateRequest request)
@@ -27,7 +28,7 @@
 
             _companyRepository.Insert(company);
 
-            await _dispatchEventService.DispatchDomainEventsAsync(company.DomainEvents);
+            await _unitOfWork.SaveAsync();
         }
     }
 }

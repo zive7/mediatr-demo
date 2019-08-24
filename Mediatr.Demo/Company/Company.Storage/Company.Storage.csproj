@@ -31,10 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MediatR, Version=6.0.0.0, Culture=neutral, PublicKeyToken=bb9a41a5e8aaa7e2, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MediatR.6.0.0\lib\net461\MediatR.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,18 +52,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyRepository.cs" />
+    <Compile Include="Database\Configuration\CompanyMapping.cs" />
+    <Compile Include="Database\Context\DbContext.cs" />
+    <Compile Include="Database\Context\IDbContext.cs" />
     <Compile Include="EmployeeRepository.cs" />
-    <Compile Include="InMemoryStorage\StorageRepo.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Factories\CompanyFatory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core.Contracts\Core.Contracts.csproj">
+      <Project>{CF240324-A07B-40C8-A80A-9049DC0C921C}</Project>
+      <Name>Core.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Company.Entities\Company.Entities.csproj">
       <Project>{CFFC2738-41C0-4BF2-80CC-71F9EEE32A68}</Project>
       <Name>Company.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

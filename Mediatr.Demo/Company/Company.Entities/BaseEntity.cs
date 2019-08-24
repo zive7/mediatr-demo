@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Core.Contracts.Enums;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,10 @@ namespace Company.Entities
 
         public IReadOnlyList<INotification> DomainEvents => _domainEvents;
 
+        public EntityState State { get; internal set; }
+
+        public bool IsChanged => State != EntityState.Unchanged;
+
         protected void AddDomainEvent(INotification eventItem)
         {
             _domainEvents.Add(eventItem);
@@ -26,6 +31,11 @@ namespace Company.Entities
             }
 
             _domainEvents.Remove(eventItem);
+        }
+
+        public void ClearDomainEvents()
+        {
+            _domainEvents.Clear();
         }
     }
 }

@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediatr.Demo.Api", "Mediatr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Contracts", "Core.Contracts\Core.Contracts.csproj", "{CF240324-A07B-40C8-A80A-9049DC0C921C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8A9DB477-C217-4BA8-B158-918CC1EDE150}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MediatrDemoDb", "Database\MediatrDemoDb\MediatrDemoDb.sqlproj", "{F261B4F9-71B7-47A3-967A-2913481538D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,12 @@ Global
 		{CF240324-A07B-40C8-A80A-9049DC0C921C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF240324-A07B-40C8-A80A-9049DC0C921C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF240324-A07B-40C8-A80A-9049DC0C921C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F261B4F9-71B7-47A3-967A-2913481538D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F261B4F9-71B7-47A3-967A-2913481538D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F261B4F9-71B7-47A3-967A-2913481538D5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F261B4F9-71B7-47A3-967A-2913481538D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F261B4F9-71B7-47A3-967A-2913481538D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F261B4F9-71B7-47A3-967A-2913481538D5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +66,7 @@ Global
 		{FF51C916-0BBD-4548-BB09-33A77F80403D} = {BE7D9313-4A66-4EE4-9B80-6E96D78ADBD0}
 		{7BB0983E-F27A-4337-B862-83FD95DEF138} = {BE7D9313-4A66-4EE4-9B80-6E96D78ADBD0}
 		{C12413FA-C0F1-4449-BA16-DA893B91BE6D} = {BE7D9313-4A66-4EE4-9B80-6E96D78ADBD0}
+		{F261B4F9-71B7-47A3-967A-2913481538D5} = {8A9DB477-C217-4BA8-B158-918CC1EDE150}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BEC4051-D768-44D9-96BB-0EF0449C37B2}
