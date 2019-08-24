@@ -1,13 +1,11 @@
 ﻿namespace Company.Entities
 {
     using global::Company.Entities.DomainEvents;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using global::Company.Entities.ValueObjects;
 
     public class Company : BaseEntity
     {
-        public string Name { get; private set; }
+        public CompanyNameValue Name { get; private set; }
 
         public decimal Number { get; private set; }
 
@@ -16,7 +14,7 @@
 
         }
 
-        public static Company Create(string name, decimal number)
+        public static Company Create(CompanyNameValue name, decimal number)
         {
             Company company = new Company()
             {

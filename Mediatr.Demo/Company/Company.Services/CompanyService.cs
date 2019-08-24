@@ -3,6 +3,7 @@
     using Company.Contracts;
     using Company.Contracts.Models;
     using Company.Entities.Storage;
+    using Company.Services.Factories;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -22,7 +23,7 @@
 
         public async Task CreateCompanyAsync(CompanyCreateRequest request)
         {
-            Entities.Company company = Entities.Company.Create(request.Name, request.Number);
+            Entities.Company company = CompanyFactory.CreateCompany(request);
 
             _companyRepository.Insert(company);
 
