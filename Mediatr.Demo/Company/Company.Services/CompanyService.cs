@@ -5,9 +5,6 @@
     using Company.Entities.Storage;
     using Company.Entities.UnitOfWork;
     using Company.Services.Factories;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Threading.Tasks;
 
     public class CompanyService : ICompanyService

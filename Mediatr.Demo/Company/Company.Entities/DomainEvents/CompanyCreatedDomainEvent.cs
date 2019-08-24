@@ -1,10 +1,7 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Company.Entities.DomainEvents
+﻿namespace Company.Entities.DomainEvents
 {
+    using MediatR;
+
     public class CompanyCreatedDomainEvent : INotification
     {
         public string Name { get; }

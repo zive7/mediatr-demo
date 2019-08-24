@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Company.Entities
+﻿namespace Company.Entities
 {
     public class Employee : BaseEntity
     {

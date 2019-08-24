@@ -1,11 +1,9 @@
-﻿using Core.Contracts.Enums;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Company.Entities
+﻿namespace Company.Entities
 {
+    using Core.Contracts.Enums;
+    using MediatR;
+    using System.Collections.Generic;
+
     public abstract class BaseEntity
     {
         private readonly List<INotification> _domainEvents = new List<INotification>();
